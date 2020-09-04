@@ -22,4 +22,4 @@ sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-${bitcoinVersion}
 
 mkdir ~/.bitcoin
 # onion nodes copied from https://github.com/rootzoll/raspiblitz/
-echo -e "proxy=127.0.0.1:9050\nlisten=1\nbind=127.0.0.1\nonlynet=onion\ndnsseed=0\ndns=0\naddnode=fno4aakpl6sg6y47.onion\naddnode=toguvy5upyuctudx.onion\naddnode=ndndword5lpb7eex.onion\naddnode=6m2iqgnqjxh7ulyk.onion\naddnode=5tuxetn7tar3q5kp.onion\naddnode=juo4oneckybinerq.onion" > ~/.bitcoin/bitcoin.conf
+echo -e "proxy=127.0.0.1:9050\nlisten=1\nbind=127.0.0.1\nonlynet=onion\ndnsseed=0\ndns=0\nblockfilterindex=1\naddnode=fno4aakpl6sg6y47.onion\naddnode=toguvy5upyuctudx.onion\naddnode=ndndword5lpb7eex.onion\naddnode=6m2iqgnqjxh7ulyk.onion\naddnode=5tuxetn7tar3q5kp.onion\naddnode=juo4oneckybinerq.onion" > ~/.bitcoin/bitcoin.conf
