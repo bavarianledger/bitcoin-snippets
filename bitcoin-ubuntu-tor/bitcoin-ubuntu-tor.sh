@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bitcoinVersion="0.20.1"
+bitcoinVersion="0.21.0"
 
 cd ~
 sudo apt update
