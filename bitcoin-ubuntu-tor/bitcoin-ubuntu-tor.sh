@@ -11,7 +11,7 @@ mkdir bitcoincoredownload
 cd bitcoincoredownload
 
 torify wget https://bitcoincore.org/bin/bitcoin-core-${bitcoinVersion}/bitcoin-${bitcoinVersion}-x86_64-linux-gnu.tar.gz
-torify wget https://bitcoin.org/bin/bitcoin-core-${bitcoinVersion}/SHA256SUMS.asc
+torify wget https://bitcoincore.org/bin/bitcoin-core-${bitcoinVersion}/SHA256SUMS.asc
 tar xvzf bitcoin-${bitcoinVersion}-x86_64-linux-gnu.tar.gz
 
 sha256sum --ignore-missing --check SHA256SUMS.asc
@@ -22,7 +22,7 @@ sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-${bitcoinVersion}
 
 mkdir ~/.bitcoin
 # onion nodes copied from https://github.com/rootzoll/raspiblitz/
-echo -e "proxy=127.0.0.1:9050\nserver=1\nlisten=1\nbind=127.0.0.1\nonlynet=onion\ndnsseed=0\ndns=0\nblockfilterindex=1\n" > ~/.bitcoin/bitcoin.conf
+echo -e "proxy=127.0.0.1:9050\nserver=1\nlisten=1\nonlynet=onion\ndnsseed=0\ndns=0\nblockfilterindex=1\n" > ~/.bitcoin/bitcoin.conf
 echo "main.bind=127.0.0.1" >> ~/.bitcoin/bitcoin.conf
 echo "main.addnode=ira7kqcbff52wofoong2dieh2xlvmw4e7ya3znsqn7wivn6armetvrqd.onion" >> ~/.bitcoin/bitcoin.conf
 echo "main.addnode=xlpi353v7ia5b73msynr7tmddgxoco7n2r2bljt5txpv6bpzzphkreyd.onion" >> ~/.bitcoin/bitcoin.conf
