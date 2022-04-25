@@ -1,21 +1,22 @@
 #!/bin/bash
 
-bitcoinVersion="22.0"
+bitcoinVersion="23.0"
 
 cd ~
 sudo apt update
 sudo apt install tor wget -y
-sudo dist-upgrade -y
+sudo apt dist-upgrade -y
 sudo rm -Rf bitcoincoredownload
 mkdir bitcoincoredownload
 cd bitcoincoredownload
 
 torify wget https://bitcoincore.org/bin/bitcoin-core-${bitcoinVersion}/bitcoin-${bitcoinVersion}-x86_64-linux-gnu.tar.gz
+torify wget https://bitcoincore.org/bin/bitcoin-core-${bitcoinVersion}/SHA256SUMS
 torify wget https://bitcoincore.org/bin/bitcoin-core-${bitcoinVersion}/SHA256SUMS.asc
 tar xvzf bitcoin-${bitcoinVersion}-x86_64-linux-gnu.tar.gz
 
-sha256sum --ignore-missing --check SHA256SUMS.asc
-gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964
+sha256sum --ignore-missing --check SHA256SUMS
+gpg --keyserver hkps://keys.openpgp.org --recv-keys E777299FC265DD04793070EB944D35F9AC3DB76A
 gpg --verify SHA256SUMS.asc 
 
 sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-${bitcoinVersion}/bin/*
